@@ -15,8 +15,8 @@ ADD package.sh /usr/bin/package.sh
 RUN dnf install -y mingw64-gcc mingw64-freetype mingw64-cairo mingw64-harfbuzz mingw64-pango mingw64-poppler mingw64-gtk3 mingw64-winpthreads-static mingw64-glib2-static gcc boost zip && dnf clean all -y
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 RUN . ~/.cargo/env && \
-    rustup install nightly && \
-    rustup default nightly && \
+    rustup install stable && \
+    rustup default stable  && \
     rustup target add x86_64-pc-windows-gnu
 ADD cargo.config /home/rust/.cargo/config
 ADD Windows-10 /home/rust/Windows10
